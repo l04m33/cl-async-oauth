@@ -15,5 +15,4 @@
                 :pathname "src"
                 :components ((:file "package")
                              (:file "util" :depends-on ("package"))
-                             (:file "session" :depends-on ("package" "util"))
-                             (:file "api-test" :depends-on ("package" "session"))))))
+                             (:file "session" :depends-on ("package" "util"))))))
