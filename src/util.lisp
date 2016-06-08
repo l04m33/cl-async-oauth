@@ -46,7 +46,7 @@
       nil)))
 
 
-(defmethod get-deep-alist-value (alist &rest keys)
+(defun get-deep-alist-value (alist &rest keys)
   (loop for k in keys
         for s = (cdr (assoc k alist)) then (cdr (assoc k s))
         finally (return s)))
