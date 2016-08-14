@@ -1,13 +1,23 @@
 (in-package #:cl-async-oauth)
 
 
+(define-condition missing-credentials-error (error)
+  ((name
+     :initarg :name
+     :reader missing-credentials-name))
+  (:report (lambda (c s)
+             (print-unreadable-object (c s :type t :identity t)
+               (format s "~a" (missing-credentials-name c)))))
+  (:documentation "Indicate the absence of credentials from a session object."))
+
+
 (defclass session ()
   ((consumer-key
-     :initform (error "No consumer key provided")
+     :initform (error 'missing-credentials-error :name "consumer-key")
      :initarg :consumer-key
      :accessor consumer-key)
    (consumer-secret
-     :initform (error "No consumer secret provided")
+     :initform (error 'missing-credentials-error :name "consumer-secret")
      :initarg :consumer-secret
      :accessor consumer-secret)
    (signature-method
