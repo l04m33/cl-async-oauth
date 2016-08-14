@@ -8,7 +8,7 @@
   (:report (lambda (c s)
              (print-unreadable-object (c s :type t :identity t)
                (format s "~a" (missing-credentials-name c)))))
-  (:documentation "Indicate the absence of credentials from a session object."))
+  (:documentation "Indicates the absence of credentials from a session object."))
 
 
 (defclass session ()

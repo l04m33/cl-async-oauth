@@ -15,8 +15,10 @@
 (defpackage #:cl-async-oauth
   (:nicknames #:oauth)
   (:use #:cl #:cl-async-oauth/util)
-  (:export #:session
+  (:export #:missing-credentials-error
+           #:missing-credentials-name
 
+           #:session
            #:consumer-key
            #:consumer-secret
            #:signature-method
@@ -37,13 +39,3 @@
            #:build-resource-url
            #:request
            #:streaming-request))
-
-
-(defpackage #:cl-async-oauth/api-test
-  (:use #:cl #:cl-async-oauth #:blackbird)
-  (:export #:mk-sess
-           #:do-request-token
-           #:do-build-authorization-url
-           #:do-access-token
-           #:do-request
-           #:do-streaming-request))
